@@ -1,4 +1,4 @@
-package com.i_mario.agrodirect;
+package com.i_mario.ToDoList;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Todo> todoList;
+    private List<ToDoModel> todoList;
     private TodoAdapter adapter;
     private SharedPreferences sharedPreferences;
     private EditText inputText;
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private List<Todo> loadTodos() {
+    private List<ToDoModel> loadTodos() {
         String json = sharedPreferences.getString("todos", null);
         if (json != null) {
-            Type type = new TypeToken<ArrayList<Todo>>() {}.getType();
+            Type type = new TypeToken<ArrayList<ToDoModel>>() {}.getType();
             return new Gson().fromJson(json, type);
         }
         return new ArrayList<>();
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addTodo(String text) {
-        Todo newTodo = new Todo();
+        ToDoModel newTodo = new ToDoModel();
         newTodo.setId(System.currentTimeMillis());
         newTodo.setText(text);
         newTodo.setCompleted(false);

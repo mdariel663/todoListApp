@@ -1,4 +1,4 @@
-package com.i_mario.agrodirect;
+package com.i_mario.ToDoList;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 import java.util.List;
 
 public class TodoAdapter extends BaseAdapter {
     private Context context;
-    private List<Todo> todoList;
+    private List<ToDoModel> todoList;
 
-    public TodoAdapter(Context context, List<Todo> todoList) {
+    public TodoAdapter(Context context, List<ToDoModel> todoList) {
         this.context = context;
         this.todoList = todoList;
     }
@@ -41,7 +40,7 @@ public class TodoAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.todo_item, parent, false);
         }
 
-        Todo todo = todoList.get(position);
+        ToDoModel todo = todoList.get(position);
 
         TextView textView = convertView.findViewById(R.id.todo_text);
         CheckBox checkBox = convertView.findViewById(R.id.todo_checkbox);

@@ -1,6 +1,6 @@
-package com.i_mario.agrodirect;
+package com.i_mario.ToDoList;
 
-public class Todo {
+public class ToDoModel {
     private long id;
     private String text;
     private boolean completed;
